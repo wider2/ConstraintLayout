@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">ConstraintSet</string>
+
+    <string name="title">Title</string>
+    <string name="title2">Title2</string>
+    <string name="description">Description</string>
+    <string name="rating">Rating</string>
+    <string name="rating2">Rating2</string>
+    <string name="genre">Genre</string>
+    <string name="similar">Similar</string>
+    <string name="rent">Rent</string>
+    <string name="buy">Buy</string>
+    <string name="details">Details</string>
+
+    <string name="permission_storage_rationale">Access to the storage is needed</string>
+    <string name="no_storage_permission">This application cannot run because it does not have the storage permission. The application will now exit.</string>
+
+    <string name="word_ok">OK</string>
+    <string name="word_yes">Yes</string>
+    <string name="word_no">No</string>
+
+
+</resources>

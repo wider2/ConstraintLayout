@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<!-- ChainStyle головного элемента — packed, bias — 0.3 (30% отступ слева/от начала)
+Элементы располагаются группой друг за другом. Такой стиль позволяет устанавливать относительную позицию группы элементов в доступном цепи пространстве через атрибут layout_constraint{*}_bias. Bias атрибут нужно указывать у головного элемента цепи;
+просто слипшиеся пельмени
+Packed Chain with Bias: This also remove all the spaces between the view but instead of centering the views now this can be set based on the percentage of the screen from where chain has to start.
+app:layout_constraintHorizontal_chainStyle="packed"
+ -->
+        <TextView
+            android:id="@+id/view_1"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintHorizontal_bias="0.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="view_1"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/view_2"/>
+
+        <TextView
+            android:id="@+id/view_2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="view_2"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintLeft_toRightOf="@id/view_1"
+            app:layout_constraintRight_toLeftOf="@+id/view_3"/>
+
+        <TextView
+            android:id="@+id/view_3"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="view_3"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintLeft_toRightOf="@id/view_2"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+
+        <!-- vertical chain packed
+        По умолчанию chainStyle — spread, так что значения атрибута можно не указывать -->
+
+        <Button
+            android:id="@+id/view1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vertical View 1"
+            app:layout_constraintVertical_chainStyle="spread"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/view2"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <Button
+            android:id="@+id/view2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vertical View 2"
+            app:layout_constraintTop_toBottomOf="@+id/view1"
+            app:layout_constraintBottom_toTopOf="@+id/view3"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <Button
+            android:id="@+id/view3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vertical View 3"
+            app:layout_constraintTop_toBottomOf="@+id/view2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+
+<!--
+hor chain: The views are packed together
+-->
+        <Button
+            android:id="@+id/hor_view1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="H View 1"
+            app:layout_constraintVertical_bias="0.4"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintRight_toLeftOf="@+id/hor_view2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/hor_view2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="H View 2"
+            app:layout_constraintVertical_bias="0.4"
+            app:layout_constraintRight_toLeftOf="@+id/hor_view3"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintLeft_toRightOf="@+id/hor_view1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/hor_view3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="H View 3"
+            app:layout_constraintVertical_bias="0.4"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintLeft_toRightOf="@+id/hor_view2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        <!--
+        Spread inside chain: The first and last view are affixed to the constraints on each end of the chain and the rest are evenly distributed
+        -->
+        <Button
+            android:id="@+id/inside_view1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ins View 1"
+            app:layout_constraintVertical_bias="0.6"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintVertical_chainStyle="spread_inside"
+            app:layout_constraintRight_toLeftOf="@+id/inside_view2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/inside_view2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ins View 2"
+            app:layout_constraintVertical_bias="0.6"
+            app:layout_constraintRight_toLeftOf="@+id/inside_view3"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintVertical_chainStyle="spread_inside"
+            app:layout_constraintLeft_toRightOf="@+id/inside_view1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/inside_view3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ins View 3"
+            app:layout_constraintVertical_bias="0.6"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintVertical_chainStyle="spread_inside"
+            app:layout_constraintLeft_toRightOf="@+id/inside_view2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <!--
+        Weighted chain: get defined size
+        -->
+        <Button
+            android:id="@+id/w_view1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wgt View 1"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintRight_toLeftOf="@+id/w_view2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/w_view2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wgt View 2"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintRight_toLeftOf="@+id/w_view3"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintLeft_toRightOf="@+id/w_view1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/w_view3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wgt View 3"
+            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintLeft_toRightOf="@+id/w_view2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
